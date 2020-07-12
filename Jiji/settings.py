@@ -30,7 +30,7 @@ DEBUG = not HEROKU
 if DEBUG:
     ALLOWED_HOSTS = ['*']
 else:
-    ALLOWED_HOSTS = ['jijiapi.herokuapp.com']
+    ALLOWED_HOSTS = ['jiji-api.herokuapp.com']
 
 
 # Application definition
