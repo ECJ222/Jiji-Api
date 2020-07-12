@@ -1,2 +1,2 @@
-web: gunicorn ecommerce.wsgi --log-file -
+web: gunicorn Jiji.wsgi --log-file -
 release: python manage.py migrate
