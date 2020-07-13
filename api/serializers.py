@@ -14,7 +14,8 @@ class SellerInfoSerializer(serializers.ModelSerializer):
     	password = validated_data.get('password', None)
     	last_name = validated_data.get('last_name', None)
     	first_name = validated_data.get('first_name', None)
-    	return User.objects.create_user(email = email, password = password, first_name = first_name, last_name = last_name, is_staff = True)
+    	state_of_residence = validated_data.get('state_of_residence', None)
+    	return User.objects.create_user(email = email, password = password, first_name = first_name, last_name = last_name, state_of_residence = state_of_residence, is_staff = True)
 
 class SellerCheckSerializer(serializers.ModelSerializer):
 
