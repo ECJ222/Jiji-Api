@@ -31,13 +31,11 @@ class SellerLoginView(APIView):
 	    		user = authenticate(request, username = email, password = password)
 	    		login(request, user)
 	    		userObj = get_user_model().objects.get(email = email)
-
+	    		token, created = Token.objects.get_or_create(user = userObj)
                 if userObj.first_name:
                     user_get = userObj.first_name #get users firstname if theres no user with a firstname returns an empty string
                 else:
                     user_get = ''
-
-	    		token, created = Token.objects.get_or_create(user = userObj)
 
 	    	except Exception as e: 
 	    		return Response('user does not exist', status = 400)
