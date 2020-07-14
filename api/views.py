@@ -33,7 +33,7 @@ class SellerLoginView(APIView):
 	    		userObj = get_user_model().objects.get(email = email)
 
                 if userObj.first_name:
-                    user_get = userObj.first_name #get users firstname
+                    user_get = userObj.first_name #get users firstname if theres none returns an empty string
                 else:
                     user_get = ''
 
