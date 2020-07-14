@@ -32,15 +32,12 @@ class SellerLoginView(APIView):
 	    		login(request, user)
 	    		userObj = get_user_model().objects.get(email = email)
 	    		token, created = Token.objects.get_or_create(user = userObj)
-                try:
-                    user_get = userObj.first_name #get users firstname 
-                except:
-                    user_get = ''
+               
 
 	    	except Exception as e: 
 	    		return Response('user does not exist', status = 400)
 	    	
-    		return Response({'token' : token.key, 'first_name' : user_get}, status = 201) 
+    		return Response({'token' : token.key, 'first_name' : userObj.first_name}, status = 201) 
     	return Response(serializer.errors, status = 400)
 
 class SellerLogoutView(APIView):
