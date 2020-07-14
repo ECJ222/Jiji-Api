@@ -32,9 +32,9 @@ class SellerLoginView(APIView):
 	    		login(request, user)
 	    		userObj = get_user_model().objects.get(email = email)
 	    		token, created = Token.objects.get_or_create(user = userObj)
-                if userObj.first_name :
-                   user_get = userObj.first_name #get users firstname if theres no seller firstname returns an empty string
-                else : 
+                try:
+                    user_get = userObj.first_name #get users firstname 
+                except:
                     user_get = ''
 
 	    	except Exception as e: 
