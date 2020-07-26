@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '05td#=02nupyv4sav=7-b)*blrkx)e#8_260qa4*54sm#pogsm'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 HEROKU = ('ENV' in os.environ and os.environ['ENV'] == 'heroku')
@@ -145,7 +145,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'api.User'
 AUTHENTICATION_BACKENDS = ['api.backends.EmailBackend']
@@ -163,12 +162,9 @@ REST_FRAMEWORK = {
     ]
 }
 
-AWS_ACCESS_KEY_ID = 'AKIA3HOKUEY2QYMIGDSD'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_S3_REGION_NAME = 'us-west-2'
-AWS_STORAGE_BUCKET_NAME = 'jiji-bucket-app'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
+DEFAULT_FILE_STORAGE = os.environ["DEFAULT_FILE_STORAGE"]
+DROPBOX_OAUTH2_TOKEN = os.environ["DROPBOX_OAUTH2_TOKEN"]
+DROPBOX_APP_KEY = os.environ["DROPBOX_APP_KEY"]
+DROPBOX_APP_SECRET_KEY = os.environ["DROPBOX_APP_SECRET_KEY"]
+DROPBOX_FILE_UPLOAD_FOLDER = os.environ["DROPBOX_FILE_UPLOAD_FOLDER"]
+DROPBOX_ACCESS_TYPE = os.environ["DROPBOX_ACCESS_TYPE"]
