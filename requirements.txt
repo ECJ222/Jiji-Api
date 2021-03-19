@@ -10,7 +10,7 @@ docutils==0.15.2
 dropbox==10.3.0
 gunicorn==20.0.4
 jmespath==0.10.0
-Pillow==2.2.1
+Pillow==8.1.1
 psycopg2==2.8.5
 python-dateutil==2.8.1
 pytz==2020.1
